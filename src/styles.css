@@ -142,3 +142,30 @@
     color: var(--color-foreground);
   }
 }
+
+:root {
+  --background: oklch(0.995 0.002 250);
+  --foreground: oklch(0.22 0.03 255);
+  --primary: oklch(0.52 0.17 255);
+  --primary-foreground: oklch(0.99 0 0);
+  --muted: oklch(0.97 0.008 250);
+  --muted-foreground: oklch(0.5 0.03 255);
+  --accent: oklch(0.95 0.03 250);
+  --accent-foreground: oklch(0.4 0.15 255);
+  --border: oklch(0.92 0.012 250);
+  --shadow-card: 0 8px 30px -12px color-mix(in oklab, var(--primary) 25%, transparent);
+}
+@theme inline {
+  --font-display: "Sora", sans-serif;
+  --font-sans: "Manrope", sans-serif;
+  --shadow-card: var(--shadow-card);
+}
+@utility card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: transform .2s, box-shadow .2s;
+  &:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+}
+@layer base { h1,h2,h3 { font-family: var(--font-display); } section { scroll-margin-top: 5rem; } }
